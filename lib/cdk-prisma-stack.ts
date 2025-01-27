@@ -12,11 +12,11 @@ export class CdkPrismaStack extends cdk.Stack {
     const prismaFunction = new NodejsFunction(this, "PrismaFunction", {
       runtime: Runtime.NODEJS_20_X,
       environment: {
-        PRISMA_QUERY_ENGINE_LIBRARY: "./libquery_engine-rhel-openssl-3.0.x.so",
+        //PRISMA_QUERY_ENGINE_LIBRARY: "./libquery_engine-rhel-openssl-3.0.x.so",
         DATABASE_URL: process.env.DATABASE_URL!,
       },
       entry: "./lambda/index.ts",
-      depsLockFilePath: "./package-lock.json",
+      //depsLockFilePath: "./package-lock.json",
       bundling: {
         nodeModules: ["@prisma/client", "prisma"],
         commandHooks: {
