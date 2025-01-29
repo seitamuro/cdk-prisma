@@ -25,7 +25,7 @@ export class CdkPrismaStack extends cdk.Stack {
             //`cp -r ${i}/node_modules/prisma/libquery_engine-rhel-openssl-3.0.x.so.node ${o}`,
           ],
           beforeBundling: (i, o) => [],
-          afterBundling: (i, o) => [`npx prisma generate`],
+          afterBundling: (i, o) => [`pnpm prisma generate`],
         },
       },
     });
