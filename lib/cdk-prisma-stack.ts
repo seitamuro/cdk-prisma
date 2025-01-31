@@ -40,5 +40,12 @@ export class CdkPrismaStack extends cdk.Stack {
         },
       },
     });
+
+    new cdk.CfnOutput(this, "SecretName", {
+      value: dbInstance.dbSecret.secretName,
+    });
+    new cdk.CfnOutput(this, "DbPublicIp", {
+      value: dbInstance.publicIp,
+    });
   }
 }
