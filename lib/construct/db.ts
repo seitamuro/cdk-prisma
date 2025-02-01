@@ -21,7 +21,7 @@ export class Db extends Construct {
           username: "postgres",
         }),
         generateStringKey: "password",
-        excludeCharacters: '"@/\\\'"#$[]{}()^¥;:%!',
+        excludeCharacters: '"@/\\\'"#$[]{}()^¥;:%!?*<>~',
       },
     });
 
@@ -83,6 +83,6 @@ export class Db extends Construct {
       .secretValueFromJson("username")
       .unsafeUnwrap()}:${dbSecret
       .secretValueFromJson("password")
-      .unsafeUnwrap()}@${dbInstance.instancePublicIp}:5432`;
+      .unsafeUnwrap()}@${dbInstance.instancePublicIp}:5432/mydb?schema=public`;
   }
 }
